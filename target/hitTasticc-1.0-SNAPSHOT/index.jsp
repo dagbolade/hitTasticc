@@ -4,6 +4,8 @@
     Author     : dagbo
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="com.assessment.hittasticc.dao.SongsDao"%>
 <%@page import="com.assessment.hittasticc.model.*"%>
 <%@page import="com.assessment.hittasticc.connection.dbconn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,6 +13,9 @@
     if (auth != null) {
         request.setAttribute("auth", auth);
     }
+    
+SongsDao song = new SongsDao(dbconn.getConnection());
+List<Song> allsongs = song.getAllSongs();
 %>
 <!DOCTYPE html>
 <html>
@@ -36,6 +41,15 @@
                 ALL SONGS
             </div>
             <div class="row">
+                <%
+                    if(!allsongs.isEmpty()){
+                        for(Song s:allsongs){
+                        out.println(s.getGenre());
+                        
+                        }
+                    }
+                %>
+                 
                 <div class="col-md-3">
                     <div class="card w-150" style="width: 18rem;">
                         <div class="card-body">
