@@ -4,7 +4,14 @@
     Author     : dagbo
 --%>
 
+<%@page import="com.assessment.hittasticc.model.*"%>
+<%@page import="com.assessment.hittasticc.connection.dbconn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% user auth =(user) request.getSession().getAttribute("auth");
+   if (auth!=null){
+        request.setAttribute("auth", auth);
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>

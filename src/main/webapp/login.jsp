@@ -4,7 +4,14 @@
     Author     : dagbo
 --%>
 
+<%@page import="com.assessment.hittasticc.model.user"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% user auth =(user) request.getSession().getAttribute("auth");
+   if (auth!=null){
+        //if auth is null login would be visible
+        response.sendRedirect("index.jsp");
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,7 +25,7 @@
             <div class="card w-50 mx-auto my-5">
                 <div class="card-header text-center">User Login</div>
                 <div class="card-body">
-                    <form action="" method="post">
+                    <form action="user-login" method="post">
                         <div class =" form-group">
                             <label>Email Address</label>
                             <input type="email" class="form-control" name="login-email" placeholder="Enter your email" required>
