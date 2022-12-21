@@ -4,6 +4,7 @@
     Author     : dagbo
 --%>
 
+<%@page import="com.assessment.hittasticc.connection.dbconn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,8 +13,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> Welcome to HitTastic</title>
     </head>
-    <body>
+    <body> 
        <%@include file="/includes/navbar.jsp"%>
+        <% out.print(dbconn.getConnection());%>
+       
+        
        <div class ="card-body mx-auto my-5">
          <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search for music" aria-label="Search">
