@@ -26,7 +26,7 @@ List<Song> allsongs = song.getAllSongs();
     </head>
     <body> 
         <%@include file="/includes/navbar.jsp"%>
-        <% out.print(dbconn.getConnection());%>
+        
 
 
         <div class ="card-body mx-auto my-5 ">
@@ -43,20 +43,15 @@ List<Song> allsongs = song.getAllSongs();
             <div class="row">
                 <%
                     if(!allsongs.isEmpty()){
-                        for(Song s:allsongs){
-                        out.println(s.getGenre());
-                        
-                        }
-                    }
-                %>
-                 
-                <div class="col-md-3">
-                    <div class="card w-150" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Song Title: FIA </h5>
-                            <h6 class="artistt">Artist : Davido</h6>
-                            <h7 class="amount">Amount : £30</h7>
-                            <div class="mt-3 d-flex justify-content-between">
+                        for(Song s:allsongs){%>
+                        <div class="col-md-3 my-3">
+                            <div class="card w-100" style="width: 18rem;">
+                             <div class="card-body">
+                                 <h5 class="card-title">Song Title: <%= s.getTitle()%> </h5>
+                                 <h6 class="artistt">Artist : <%=s.getArtist()%></h6>
+                                 <h7 class="amount">Amount : £<%=s.getAmount()%></h7>
+                                 <h8 class="genre">Genre : <%=s.getGenre()%></h8>
+                            <div class="d-flex justify-content-between mt-3">
                                 <a href="#" class="btn btn-primary">Add to Cart</a>
                                 <a href="#" class="btn btn-primary">Buy Song</a>
                             </div>
@@ -64,6 +59,12 @@ List<Song> allsongs = song.getAllSongs();
                         </div>
                     </div>
                 </div>
+                        
+                        <%}
+                    }
+                %>
+                 
+              
 
             </div>
 
