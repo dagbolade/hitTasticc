@@ -4,6 +4,9 @@
     Author     : dagbo
 --%>
 
+<%@page import="com.assessment.hittasticc.dao.SongsDao"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.assessment.hittasticc.model.*"%>
 <%@page import="com.assessment.hittasticc.connection.dbconn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,6 +14,14 @@
    if (auth!=null){
         request.setAttribute("auth", auth);
     }
+   //get the cart list from the session list
+   ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+   List<Cart> cartSong = null;
+   if(cart_list != null){
+       SongsDao s = new SongsDao(dbconn.getConnection());
+       cartSong = s.getCartSongs(cart_list);
+       request.setAttribute("cart_list", cart_list);
+   }
 %>
 <!DOCTYPE html>
 <html>
@@ -35,14 +46,16 @@
                        </tr>
                    </thead>
                    <tbody>
-                       <tr>
-                           <td>Davido</td>
-                           <td>FIA</td>
-                           <td>30</td>
+                       <% if(cart_list != null){
+                            for(Cart c:cartSong){%>
+                                <tr>
+                           <td> <%= c.getArtist()%></td>
+                           <td><%= c.getTitle() %></td>
+                           <td>£<%= c.getAmount() %></td>
                            <td>
                                <form action="" method="post" class="form-inline">
                                    <%--put the songs id in a form--%>
-                                   <input type="hidden" name="id" value="1" class="form-input">
+                                   <input type="hidden" name="id" value="<%= c.getId() %>" class="form-input">
                                    <div class="form-group d-flex justify-content-between">
                                        <a class="btn btn-sm btn-incre" href="#"><i class="fas fa-plus-square"></i></a>
                                        <input type="text" name="quantity" class="form-control" value="1" readonly>
@@ -52,6 +65,10 @@
                            </td>
                            <<td><a class="btn btn-sm btn-danger" href="">Cancel</a></td>
                        </tr>
+                       <%}
+                       } 
+                       %>
+                       
                    </tbody>
                </table>
             <div class="d-flex py-3">

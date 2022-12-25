@@ -5,6 +5,7 @@
  */
 package com.assessment.hittasticc.dao;
 
+import com.assessment.hittasticc.model.Cart;
 import com.assessment.hittasticc.model.Song;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -53,6 +54,39 @@ public class SongsDao {
         }
         
         return allsongs;
+    }
+    
+    //Return cart items from list
+    public List<Cart> getCartSongs(ArrayList<Cart> cartList){
+        List<Cart> songs = new ArrayList<Cart>();
+        
+        try{
+            if(cartList.size()>0){
+                for(Cart item:cartList){
+                    query = "select * from songs where id=?";
+                    pst = this.con.prepareStatement(query);
+                    pst.setInt(1, item.getId());
+                    rs = pst.executeQuery();
+                    while(rs.next()){
+                        Cart row = new Cart();
+                        row.setId(rs.getInt("id"));
+                        row.setArtist(rs.getString("artist"));
+                        row.setAmount(rs.getDouble("amount")*item.getQuantity());
+                        row.setGenre(rs.getString("genre"));
+                        row.setTitle(rs.getString("title"));
+                        row.setQuantity(item.getQuantity());
+                        
+                        songs.add(row);
+                        
+                    }
+                }
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        
+        return songs;
     }
     
 
