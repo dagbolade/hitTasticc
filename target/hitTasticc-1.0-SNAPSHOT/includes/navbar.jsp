@@ -19,6 +19,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="cart.jsp">Cart<span class="badge badge-primary px-2">${ cart_list.size()}</span></a>
                 </li>
+                
+
+
                 <%if (auth != null) {%>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="order.jsp">Orders</a>
@@ -30,6 +33,12 @@
                 <li class="nav-item">
                     <a class="nav-link disabled" href="login.jsp">Login</a>
                 </li>
+                <div class ="card-body mx-auto my-5 ">
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search for music" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
                 <%}
                 %>
 

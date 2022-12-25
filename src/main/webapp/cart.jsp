@@ -43,7 +43,7 @@
                            <th scope="col">Artist</th>
                            <th scope="col">Title</th>
                            <th scope="col">Amount</th>
-                           <th scope="col">Buy Now</th>
+                           <th scope="col">Quantity</th>
                            <th scope="col">Cancel</th>
                        </tr>
                    </thead>
@@ -59,9 +59,9 @@
                                    <%--put the songs id in a form--%>
                                    <input type="hidden" name="id" value="<%= c.getId() %>" class="form-input">
                                    <div class="form-group d-flex justify-content-between">
-                                       <a class="btn btn-sm btn-incre" href="#"><i class="fas fa-plus-square"></i></a>
+                                       <a class="btn btn-sm btn-incre" href="quantity-inc-dec"><i class="fas fa-plus-square"></i></a>
                                        <input type="text" name="quantity" class="form-control" value="1" readonly>
-                                       <a class="btn btn-sm btn-decre" href="#"><i class="fas fa-minus-square"></i></a>
+                                       <a class="btn btn-sm btn-decre" href="quantity-inc-dec"><i class="fas fa-minus-square"></i></a>
                                    </div>
                                </form>
                            </td>
@@ -74,7 +74,7 @@
                    </tbody>
                </table>
             <div class="d-flex py-3">
-               <h3> Total Amount : £ ${sum} </h3><a class="mx-3 btn btn-primary" href="#">Check Out</a>
+               <h3> Total Amount : £ ${(sum>0)? sum:0 } </h3><a class="mx-3 btn btn-primary" href="#">Check Out</a>
                </div>
         </div>
         

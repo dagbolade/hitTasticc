@@ -34,15 +34,6 @@ List<Song> allsongs = song.getAllSongs();
     <body> 
         <%@include file="/includes/navbar.jsp"%>
         
-
-
-        <div class ="card-body mx-auto my-5 ">
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search for music" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-
         <div class="container">
             <div class="card-header my-3">
                 ALL SONGS
