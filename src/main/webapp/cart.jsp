@@ -20,7 +20,9 @@
    if(cart_list != null){
        SongsDao s = new SongsDao(dbconn.getConnection());
        cartSong = s.getCartSongs(cart_list);
+       double sum = s.getTotalAmount(cart_list);
        request.setAttribute("cart_list", cart_list);
+       request.setAttribute("sum", sum);
    }
 %>
 <!DOCTYPE html>
@@ -72,7 +74,7 @@
                    </tbody>
                </table>
             <div class="d-flex py-3">
-               <h3> Total Amount : £534 </h3><a class="mx-3 btn btn-primary" href="#">Check Out</a>
+               <h3> Total Amount : £ ${sum} </h3><a class="mx-3 btn btn-primary" href="#">Check Out</a>
                </div>
         </div>
         

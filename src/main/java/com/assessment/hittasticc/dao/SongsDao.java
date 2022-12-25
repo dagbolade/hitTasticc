@@ -89,5 +89,35 @@ public class SongsDao {
         return songs;
     }
     
+    //Calculate Total Amount
+    public double getTotalAmount(ArrayList<Cart> cartList){
+        double total = 0;
+        try{
+            //check if cart list is not empty
+            if(cartList.size()>0){
+                // Iterate over the cartList
+                for (Cart item : cartList) {
+                    query = "select amount from songs where id=?";
+                     // Create a Prepared Statement
+                    pst = this.con.prepareStatement(query);
+                     // Set the value for the id parameter
+                    pst.setInt(1, item.getId());
+                    // Execute the query
+                    rs = pst.executeQuery();
+                    
+                     // Add the amount value to the total 
+                     while(rs.next()){
+                         total += rs.getDouble("amount")*item.getQuantity();
+                     }
+
+                }
+            }
+            
+        
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return total;
+    }
 
 }
