@@ -4,6 +4,7 @@
     Author     : dagbo
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="com.assessment.hittasticc.dao.SongsDao"%>
 <%@page import="com.assessment.hittasticc.model.*"%>
@@ -16,6 +17,12 @@
     
 SongsDao song = new SongsDao(dbconn.getConnection());
 List<Song> allsongs = song.getAllSongs();
+//get the cart list from the session list
+   ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+   if(cart_list != null){
+       request.setAttribute("cart_list", cart_list);
+   }
+
 %>
 <!DOCTYPE html>
 <html>

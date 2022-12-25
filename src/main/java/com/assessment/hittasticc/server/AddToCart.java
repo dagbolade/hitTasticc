@@ -23,15 +23,6 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "AddToCart", urlPatterns = {"/add-to-cart"})
 public class AddToCart extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

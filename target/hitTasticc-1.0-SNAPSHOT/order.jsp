@@ -5,6 +5,7 @@
 --%>
 
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.assessment.hittasticc.model.*"%>
 <%@page import="com.assessment.hittasticc.connection.dbconn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +13,11 @@
    if (auth!=null){
         request.setAttribute("auth", auth);
     }
+   //get the cart list from the session list
+   ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+   if(cart_list != null){
+       request.setAttribute("cart_list", cart_list);
+   }
 %>
 <!DOCTYPE html>
 <html>

@@ -4,6 +4,8 @@
     Author     : dagbo
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.assessment.hittasticc.model.Cart"%>
 <%@page import="com.assessment.hittasticc.model.user"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% user auth =(user) request.getSession().getAttribute("auth");
@@ -11,6 +13,12 @@
         //if auth is null login would be visible
         response.sendRedirect("index.jsp");
     }
+//get the cart list from the session list
+   ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+   if(cart_list != null){
+       request.setAttribute("cart_list", cart_list);
+   }   
+
 %>
 <!DOCTYPE html>
 <html>
