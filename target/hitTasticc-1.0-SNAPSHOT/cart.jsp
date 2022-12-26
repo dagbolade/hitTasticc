@@ -55,14 +55,15 @@
                            <td><%= c.getTitle() %></td>
                            <td>£<%= c.getAmount() %></td>
                            <td>
-                               <form action="" method="post" class="form-inline">
+                               <form action="order-now" method="post" class="form-inline">
                                    <%--put the songs id in a form--%>
                                    <input type="hidden" name="id" value="<%= c.getId() %>" class="form-input">
-                                   <div class="form-group d-flex justify-content-between">
+                                   <div class="form-group d-flex justify-content-between w-50">
                                        <a class="btn btn-sm btn-incre" href="quantity-inc-dec?action=inc&id=<%= c.getId() %>"><i class="fas fa-plus-square"></i></a>
-                                       <input type="text" name="quantity" class="form-control" value="<%= c.getQuantity() %>" readonly>
+                                       <input type="number" name="quantity" class="form-control w-50"  value="<%= c.getQuantity() %>" readonly>
                                        <a class="btn btn-sm btn-decre" href="quantity-inc-dec?action=dec&id=<%= c.getId() %>"><i class="fas fa-minus-square"></i></a>
                                    </div>
+                                   <button type="submit" class="btn btn-primary btn-sm">Buy Now</button>
                                </form>
                            </td>
                            <<td><a class="btn btn-sm btn-danger" href="cancel-order?id=<%= c.getId() %>">Cancel</a></td>
