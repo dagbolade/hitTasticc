@@ -46,7 +46,7 @@ public class OrderNow extends HttpServlet {
                 boolean result = orderDao.insertOrder(order);
 
                 if (result) {
-                    response.sendRedirect("order.jsp");
+                    response.sendRedirect("http://localhost:8080/hitTasticc/order.jsp");
                 } else {
                     out.println("order failed");
                 }
