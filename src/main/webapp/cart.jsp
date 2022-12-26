@@ -65,7 +65,7 @@
                                    </div>
                                </form>
                            </td>
-                           <<td><a class="btn btn-sm btn-danger" href="">Cancel</a></td>
+                           <<td><a class="btn btn-sm btn-danger" href="cancel-order?id=<%= c.getId() %>">Cancel</a></td>
                        </tr>
                        <%}
                        } 
