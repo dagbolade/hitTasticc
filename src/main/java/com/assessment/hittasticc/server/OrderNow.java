@@ -7,11 +7,13 @@ package com.assessment.hittasticc.server;
 
 import com.assessment.hittasticc.connection.dbconn;
 import com.assessment.hittasticc.dao.OrderDao;
+import com.assessment.hittasticc.model.Cart;
 import com.assessment.hittasticc.model.Order;
 import com.assessment.hittasticc.model.user;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,7 +48,16 @@ public class OrderNow extends HttpServlet {
                 boolean result = orderDao.insertOrder(order);
 
                 if (result) {
-                    response.sendRedirect("http://localhost:8080/hitTasticc/order.jsp");
+                    ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+                    if (cart_list != null) {
+                        for (Cart c : cart_list) {
+                            if (c.getId() == Integer.parseInt(songid)) {
+                                cart_list.remove(cart_list.indexOf(c));
+                                break;
+                            }
+                        }
+                    }
+                    response.sendRedirect("order.jsp");
                 } else {
                     out.println("order failed");
                 }
@@ -54,7 +65,7 @@ public class OrderNow extends HttpServlet {
             } else {
                 response.sendRedirect("login.jsp");
             }
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
@@ -63,9 +74,7 @@ public class OrderNow extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request,response);
+        doGet(request, response);
     }
-
-
 
 }

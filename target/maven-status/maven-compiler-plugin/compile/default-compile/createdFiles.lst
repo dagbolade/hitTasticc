@@ -1,9 +1,14 @@
 com\assessment\hittasticc\server\AddToCart.class
 com\assessment\hittasticc\server\LogoutUser.class
+com\assessment\hittasticc\server\CancelOrder.class
+com\assessment\hittasticc\model\user.class
+com\assessment\hittasticc\connection\dbconn.class
+com\assessment\hittasticc\model\Song.class
+com\assessment\hittasticc\model\Order.class
 com\assessment\hittasticc\dao\UserDao.class
 com\assessment\hittasticc\server\LoginUser.class
-com\assessment\hittasticc\model\user.class
+com\assessment\hittasticc\server\QuantityIncDec.class
 com\assessment\hittasticc\model\Cart.class
-com\assessment\hittasticc\connection\dbconn.class
+com\assessment\hittasticc\server\OrderNow.class
 com\assessment\hittasticc\dao\SongsDao.class
-com\assessment\hittasticc\model\Song.class
+com\assessment\hittasticc\dao\OrderDao.class
