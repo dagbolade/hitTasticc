@@ -65,7 +65,7 @@ List<Order> orders = null;
                             <td><%= o.getGenre()%></td>
                             <td><%= o.getQty()%></td>
                             <td><%= o.getAmount()%></td>
-                            <td><a class="btn btn-sm btn-danger" href="cancel-order?id=<%= o.getOrderId()%> "> Remove </a></td>
+                            <td><a class="btn btn-sm btn-danger" href="remove-order?id=<%= o.getOrderId()%> "> Remove </a></td>
                                
                             </tr>
                            <%} 
