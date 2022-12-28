@@ -10,6 +10,7 @@ import com.assessment.hittasticc.model.Song;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,6 +55,30 @@ public class SongsDao {
         }
         
         return allsongs;
+    }
+     public List<Song> searchMusic(String search) {
+         List<Song> songList = new ArrayList<>();
+        try{
+            String query = "SELECT * FROM songs WHERE title LIKE ? OR artist LIKE ?";
+            pst = this.con.prepareStatement(query);
+            pst.setString(1, search);
+            pst.setString(2, search);
+            rs = pst.executeQuery();
+             
+            
+            while(rs.next()){
+                Song find = new Song();
+                find.setArtist(rs.getString("artist"));
+                find.setGenre(rs.getString("genre"));
+                find.setTitle(rs.getString("title"));
+                find.setAmount(rs.getDouble("amount"));
+                songList.add(find);
+            }
+             
+        }catch(Exception e){
+             e.printStackTrace();
+        }
+        return songList;
     }
     
     //Return cart items from list
