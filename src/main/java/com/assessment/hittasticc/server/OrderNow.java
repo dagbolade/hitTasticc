@@ -13,7 +13,9 @@ import com.assessment.hittasticc.model.user;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,7 +33,8 @@ public class OrderNow extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
-            
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = new Date();
             // Get the "auth" attribute from the session
             user auth = (user) request.getSession().getAttribute("auth");
             if (auth != null) {
@@ -47,15 +50,16 @@ public class OrderNow extends HttpServlet {
                 }
                 // Create an "Order" object and set its properties using the values of "songid", "auth.getId()", and "songQty"
                 
-                Order order = new Order();
-                order.setId(Integer.parseInt(songid));
-                order.setUid(auth.getId());
-                order.setQty(songQty);
+                Order song = new Order();
+                song.setId(Integer.parseInt(songid));
+                song.setUid(auth.getId());
+                song.setQty(songQty);
+                song.setDate(formatter.format(date));
                 
                 
     // Create an "OrderDao" object and call the "insertOrder" method, passing in the "order" object as an argument
                 OrderDao orderDao = new OrderDao(dbconn.getConnection());
-                boolean result = orderDao.insertOrder(order);
+                boolean result = orderDao.insertOrder(song);
 
                 if (result) {
                      // If the "insertOrder" method returns true, it means that the order was successfully inserted into the database
