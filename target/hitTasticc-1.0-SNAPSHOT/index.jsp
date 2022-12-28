@@ -51,7 +51,7 @@ List<Song> allsongs = song.getAllSongs();
                                  <h8 class="genre">Genre : <%=s.getGenre()%></h8>
                             <div class="d-flex justify-content-between mt-3">
                                 <a href="add-to-cart?id=<%= s.getId() %>" class="btn btn-outline-success">Add to Cart</a>
-                                <a href="#" class="btn btn-primary">Buy Song</a>
+                                <a href="order-now?quantity=1&id=<%= s.getId()%>" class="btn btn-primary">Buy Song</a>
                             </div>
                            
                         </div>

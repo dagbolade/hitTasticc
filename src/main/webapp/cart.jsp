@@ -75,7 +75,7 @@
                    </tbody>
                </table>
             <div class="d-flex py-3">
-               <h3> Total Amount : £ ${(sum>0)? sum:0 } </h3><a class="mx-3 btn btn-primary" href="#">Check Out</a>
+               <h3> Total Amount : £ ${(sum>0)? sum:0 } </h3><a class="mx-3 btn btn-primary" href="check-out">Check Out</a>
                </div>
         </div>
         

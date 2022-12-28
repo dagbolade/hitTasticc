@@ -27,7 +27,7 @@ public class OrderDao {
     
     public boolean insertOrder(Order model){
         boolean result = false;
-        query = "insert into orders(song_id,user_id,quantity) values(?,?,?)";
+        query = "insert into orders(song_id,user_id,quantity,Date) values(?,?,?,?)";
         try{
             
             
@@ -35,7 +35,7 @@ public class OrderDao {
             pst.setInt(1, model.getId());
             pst.setInt(2, model.getUid());
             pst.setInt(3, model.getQty());
-            
+            pst.setString(4, model.getDate());
             pst.executeUpdate();
             result = true;
             
