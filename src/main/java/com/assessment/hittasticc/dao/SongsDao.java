@@ -89,6 +89,31 @@ public class SongsDao {
         return songs;
     }
     
+    public Song getSingleSong(int id){
+        Song hit = null;
+        
+        try{
+            query = "Select * from songs where id=?";
+            pst = this.con.prepareStatement(query);
+            pst.setInt(1, id);
+            rs = pst.executeQuery();
+            
+            while(rs.next()){
+                hit = new Song();
+                hit.setId(rs.getInt("id"));
+                hit.setArtist(rs.getString("artist"));
+                hit.setGenre(rs.getString("genre"));
+                hit.setAmount(rs.getDouble("amount"));
+                hit.setTitle(rs.getString("title"));
+            }
+        
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        return hit;
+    }
+    
     //Calculate Total Amount
     public double getTotalAmount(ArrayList<Cart> cartList){
         double total = 0;
