@@ -84,4 +84,16 @@ public class OrderDao {
         
         return list;
     }
+    
+    //remove oreder from the list
+    public void RemoveOrder(int id){
+        try{
+            query = "delete from orders where order_id=?";
+            pst = this.con.prepareStatement(query);
+            pst.setInt(1, id);
+            pst.execute();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }
