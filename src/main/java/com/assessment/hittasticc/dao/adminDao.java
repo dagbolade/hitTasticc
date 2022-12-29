@@ -5,11 +5,13 @@
  */
 package com.assessment.hittasticc.dao;
 
+import com.assessment.hittasticc.model.Song;
 import com.assessment.hittasticc.model.admlgn;
 import com.assessment.hittasticc.model.user;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +27,10 @@ public class adminDao {
 
     public adminDao(Connection con) {
         this.con = con;
+    }
+
+    public adminDao() {
+        
     }
 
     public admlgn adminlogin(String email, String password) {
@@ -77,5 +83,25 @@ public class adminDao {
         }
         
         return list;
+    }
+    
+    public void insert(Song song) {
+        
+        String query
+                = "INSERT INTO songs (title, artist, amount, genre) "
+                + "VALUES (?, ?, ?, ?)";
+        try {
+            
+            pst = this.con.prepareStatement(query);
+            pst.setString(1, song.getTitle());
+            pst.setString(2, song.getArtist());
+            pst.setDouble(3, song.getAmount());
+            pst.setString(4, song.getGenre());
+            pst.executeUpdate();
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+            
+        } 
     }
 }

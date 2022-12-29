@@ -1,6 +1,7 @@
 com\assessment\hittasticc\dao\adminDao.class
 com\assessment\hittasticc\server\AddToCart.class
 com\assessment\hittasticc\server\LogoutUser.class
+com\assessment\hittasticc\server\addSong.class
 com\assessment\hittasticc\server\CancelOrder.class
 com\assessment\hittasticc\server\SearchServlet.class
 com\assessment\hittasticc\server\RemoveOrder.class

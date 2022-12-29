@@ -57,7 +57,7 @@ public class OrderDao {
         try{
             query = "select * from orders where user_id=? order by orders.order_id desc";
             pst = this.con.prepareStatement(query);
-            pst.setInt(1, id);
+            pst.setInt(1, id);pst.setInt(1, id);
             rs = pst.executeQuery();
             
             while(rs.next()){

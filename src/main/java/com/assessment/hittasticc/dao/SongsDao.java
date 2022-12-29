@@ -58,9 +58,10 @@ public class SongsDao {
     }
     public List<Song> searchMusic(String search) {
         List<Song> songList = new ArrayList<Song>();
-        try{
-            String query = "SELECT * FROM songs WHERE artist = ? OR title = ?";
+        String query = "SELECT * FROM songs WHERE artist = ? OR title = ?";
             System.out.println("Query: " + query);
+        try{
+            
             PreparedStatement pst = this.con.prepareStatement(query);
             pst.setString(1, "%" + search + "%");
             pst.setString(2, "%" + search + "%");

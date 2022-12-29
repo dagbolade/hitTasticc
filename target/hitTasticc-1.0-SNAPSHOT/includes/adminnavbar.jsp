@@ -29,7 +29,7 @@
                     <a class="nav-link disabled" href="#">Manage User</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Add Song</a>
+                    <a class="nav-link disabled" href="addform.jsp">Add Song</a>
                 </li>
                 
                 <li class="nav-item">
