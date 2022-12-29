@@ -56,33 +56,33 @@ public class SongsDao {
         
         return allsongs;
     }
-     public List<Song> searchMusic(String search) {
-    List<Song> songList = new ArrayList<Song>();
-    try{
-        String query = "SELECT * FROM songs WHERE artist = ? AND title = ?";
-        System.out.println("Query: " + query);
-        PreparedStatement pst = this.con.prepareStatement(query);
-        pst.setString(1, "%" + search + "%");
-        pst.setString(2, "%" + search + "%");
-        ResultSet rs = pst.executeQuery();
-        System.out.println("Search string dao: " + search);
-        System.out.println("Number of songs found in dao : " + songList.size());
+    public List<Song> searchMusic(String search) {
+        List<Song> songList = new ArrayList<Song>();
+        try{
+            String query = "SELECT * FROM songs WHERE artist = ? OR title = ?";
+            System.out.println("Query: " + query);
+            PreparedStatement pst = this.con.prepareStatement(query);
+            pst.setString(1, "%" + search + "%");
+            pst.setString(2, "%" + search + "%");
+            ResultSet rs = pst.executeQuery();
+            System.out.println("Search string dao: " + search);
+            System.out.println("Number of songs found in dao : " + songList.size());
 
-        while(rs.next()){
-            Song find = new Song();
-            find.setId(rs.getInt("id"));
-            find.setArtist(rs.getString("artist"));
-            find.setGenre(rs.getString("genre"));
-            find.setTitle(rs.getString("title"));
-            find.setAmount(rs.getDouble("amount"));
-            songList.add(find);
+            while(rs.next()){
+                Song find = new Song();
+                find.setId(rs.getInt("id"));
+                find.setArtist(rs.getString("artist"));
+                find.setGenre(rs.getString("genre"));
+                find.setTitle(rs.getString("title"));
+                find.setAmount(rs.getDouble("amount"));
+                songList.add(find);
+            }
+
+        }catch(Exception e){
+            e.printStackTrace();
         }
-
-    }catch(Exception e){
-        e.printStackTrace();
+        return songList;
     }
-    return songList;
-}
     
     //Return cart items from list
     public List<Cart> getCartSongs(ArrayList<Cart> cartList){
