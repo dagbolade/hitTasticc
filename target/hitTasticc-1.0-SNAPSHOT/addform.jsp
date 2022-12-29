@@ -15,8 +15,8 @@
        <form action="addsong.jsp" method="post">
                 Song Name:<input type="text" name="title"><br>
                 Artist name:<input type="text" name="artist"><br>
-                
-                Genre:<input type="text" name="quantity"><br><br>
+                Amount:<input type="text" name="amount"><br>
+                Genre:<input type="text" name="genre"><br><br>
                 <input type="submit" value="Submit">
                 <p><a href ="http://localhost:8080/assessmentWeb/Adminpage.jsp">Back to Admin page</a></p>
             </form>
