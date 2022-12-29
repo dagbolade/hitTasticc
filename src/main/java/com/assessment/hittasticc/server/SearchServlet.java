@@ -30,22 +30,32 @@ public class SearchServlet extends HttpServlet {
             
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doPost(request, response);
+        try (PrintWriter out = response.getWriter()){
+            
+            
+            SongsDao songDao = new SongsDao(dbconn.getConnection());
+            String search = request.getParameter("search");
+            
+            System.out.println("Search string: " + search);
+            
+            List<Song> songList = songDao.searchMusic(search);
+            request.setAttribute("songList", songList);
+            
+             System.out.println("Number of songs found in servlet: " + songList.size());
+
+            
+            response.sendRedirect("search-results.jsp");
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+       
     }
 
    
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            SongsDao songDao = new SongsDao(dbconn.getConnection());
-            String search = request.getParameter("search");
-            List<Song> songList = songDao.searchMusic(search);
-            request.setAttribute("songList", songList);
-            request.getRequestDispatcher("search-results.jsp").forward(request, response);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+         doGet(request, response);
     }
 
 

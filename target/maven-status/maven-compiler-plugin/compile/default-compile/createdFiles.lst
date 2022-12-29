@@ -1,9 +1,12 @@
 com\assessment\hittasticc\server\AddToCart.class
 com\assessment\hittasticc\server\LogoutUser.class
 com\assessment\hittasticc\server\CancelOrder.class
+com\assessment\hittasticc\server\SearchServlet.class
+com\assessment\hittasticc\server\RemoveOrder.class
 com\assessment\hittasticc\model\user.class
 com\assessment\hittasticc\connection\dbconn.class
 com\assessment\hittasticc\model\Song.class
+com\assessment\hittasticc\server\CheckOut.class
 com\assessment\hittasticc\model\Order.class
 com\assessment\hittasticc\dao\UserDao.class
 com\assessment\hittasticc\server\LoginUser.class

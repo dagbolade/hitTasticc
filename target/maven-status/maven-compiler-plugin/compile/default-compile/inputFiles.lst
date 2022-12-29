@@ -2,8 +2,10 @@ C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\model\user.jav
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\dao\OrderDao.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\QuantityIncDec.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\CancelOrder.java
+C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\CheckOut.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\LogoutUser.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\AddToCart.java
+C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\SearchServlet.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\model\Cart.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\dao\SongsDao.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\OrderNow.java
@@ -12,3 +14,4 @@ C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\model\Order.ja
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\dao\UserDao.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\connection\dbconn.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\LoginUser.java
+C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\RemoveOrder.java
