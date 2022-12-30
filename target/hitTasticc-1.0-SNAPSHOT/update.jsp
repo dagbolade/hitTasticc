@@ -34,16 +34,27 @@ while(resultSet.next()){
 %>
 <!DOCTYPE html>
 <html>
+    <head>
+        <%@include file="/includes/header.jsp"%>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Update User</title>
+    </head>
 <body>
-<h1>Update User</h1>
+    <%@include file="/includes/adminnavbar.jsp"%>
+
 
  <div class="container">
             <div class="card w-50 mx-auto my-5">
                 <div class="card-header text-center">Update User</div>
                 <div class="card-body">
                     <form action="update-process.jsp" method="post">
-                        <input type="hidden" name="id" value="<%=resultSet.getString("id") %>">
-                        <input type="text" name="id" value="<%=resultSet.getString("id") %>">
+                        
+                        
+                        <div class =" form-group">
+                            <label>id</label>
+                            <input type="hidden" name="id" value="<%=resultSet.getString("id") %>">
+                            <input type="text" name="id" value="<%=resultSet.getString("id") %>">
+                        </div>
                         <div class =" form-group">
                             <label>name</label>
                             <input type="text" class="form-control" name="name" value="<%=resultSet.getString("name") %>" required>
@@ -68,5 +79,6 @@ connection.close();
 e.printStackTrace();
 }
 %>
+<%@include file="/includes/footer.jsp"%>
 </body>
 </html>
