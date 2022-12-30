@@ -26,7 +26,7 @@
 
                 
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Manage User</a>
+                    <a class="nav-link disabled" href="manageUser.jsp">Manage User</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="addform.jsp">Add Song</a>

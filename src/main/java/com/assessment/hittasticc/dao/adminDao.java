@@ -102,6 +102,18 @@ public class adminDao {
         } catch (SQLException e) {
             e.printStackTrace();
             
-        } 
+        }
+        
+    }
+    
+    public void RemoveUser(int id){
+        try{
+            query = "delete from user where id=?";
+            pst = this.con.prepareStatement(query);
+            pst.setInt(1, id);
+            pst.execute();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }
