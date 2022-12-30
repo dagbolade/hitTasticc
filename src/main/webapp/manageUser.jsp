@@ -53,6 +53,7 @@ List<user> users = null;
                             <td><%= u.getId()%></td>
                             <td><%= u.getName()%></td>
                             <td><%= u.getEmail()%></td>
+                            <td><a class="btn btn-sm btn-primary" href="update.jsp?id=<%= u.getId()%> "> Edit </a></td>
                             <td><a class="btn btn-sm btn-danger" href="remove-user?id=<%= u.getId()%> "> Remove </a></td>
                             
                                

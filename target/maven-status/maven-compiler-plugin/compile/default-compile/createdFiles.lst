@@ -3,7 +3,7 @@ com\assessment\hittasticc\server\AddToCart.class
 com\assessment\hittasticc\server\LogoutUser.class
 com\assessment\hittasticc\server\addSong.class
 com\assessment\hittasticc\server\CancelOrder.class
-com\assessment\hittasticc\server\SearchServlet.class
+com\assessment\hittasticc\server\RemoveUser.class
 com\assessment\hittasticc\server\RemoveOrder.class
 com\assessment\hittasticc\model\user.class
 com\assessment\hittasticc\server\adminLgnServlet.class

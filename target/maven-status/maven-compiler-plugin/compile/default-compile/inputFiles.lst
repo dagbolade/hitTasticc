@@ -7,7 +7,6 @@ C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\CancelO
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\CheckOut.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\LogoutUser.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\AddToCart.java
-C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\SearchServlet.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\addSong.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\model\Cart.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\dao\SongsDao.java
@@ -16,6 +15,7 @@ C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\model\Song.jav
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\adminLgnServlet.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\model\Order.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\dao\UserDao.java
+C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\RemoveUser.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\connection\dbconn.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\LoginUser.java
 C:\Users\dagbo\hitTasticc\src\main\java\com\assessment\hittasticc\server\RemoveOrder.java
