@@ -30,10 +30,10 @@ try{
            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hittastic","root","");
            Statement st =conn.createStatement();
            
-           //String title=request.getParameter("title");
+           String title=request.getParameter("title");
            String artist=request.getParameter("artist"); //giving a null error exception
            
-           String sql ="select * from songs where artist='"+artist+"'";
+           String sql ="select * from songs where artist='"+artist+"' OR title='"+title+"'";
            resultSet = st.executeQuery(sql);
            while(resultSet.next()){
 %>
