@@ -31,7 +31,7 @@ try{
            Statement st =conn.createStatement();
            
            String title=request.getParameter("title");
-           //String artist=request.getParameter("artist");
+           //String artist=request.getParameter("artist"); giving a null error exception
            
            String sql ="select * from songs where title='"+title+"'";
            resultSet = st.executeQuery(sql);
