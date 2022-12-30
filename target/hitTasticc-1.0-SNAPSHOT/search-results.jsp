@@ -1,3 +1,4 @@
+<%@page import="com.assessment.hittasticc.model.user"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
@@ -10,20 +11,26 @@
 Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
+
+user auth = (user) request.getSession().getAttribute("auth");
+    if (auth != null) {
+        request.setAttribute("auth", auth);
+    }
+
 %>
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+        <%@include file="/includes/header.jsp"%>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title> Searched Results</title>
+    </head>
+    
+    <body> 
+        <%@include file="/includes/navbar.jsp"%>
+        
 
-<h1>Search Data</h1>
-<table border="1">
-<tr>
-<td>title</td>
-<td>artist</td>
-<td>genre</td>
 
-
-</tr>
 <%
 try{
            Class.forName("com.mysql.cj.jdbc.Driver");
@@ -37,13 +44,31 @@ try{
            resultSet = st.executeQuery(sql);
            while(resultSet.next()){
 %>
-<tr>
-<td><%=resultSet.getString("title") %></td>
-<td><%=resultSet.getString("artist") %></td> 
-<td><%=resultSet.getString("genre") %></td>
+<div class="container">
+    <div class="card-header my-3">
+                Searched Results
+            </div>
+                  <div class="row">   
+                    <div class="col-md-3 my-3">
+                            <div class="card w-100" style="width: 18rem;">
+                             <div class="card-body">
+                                 <h5 class="card-title">Song Title: <%=resultSet.getString("title") %> </h5>
+                                 <h6 class="artistt">Artist : <%=resultSet.getString("artist") %></h6>
+                                 <h7 class="amount">Amount : £<%=resultSet.getString("amount") %></h7>
+                                 <h8 class="genre">Genre : <%=resultSet.getString("genre") %></h8>
+                            <div class="d-flex justify-content-between mt-3">
+                                <a href="add-to-cart?id=<%=resultSet.getString("id") %>" class="btn btn-outline-success">Add to Cart</a>
+                                <a href="order-now?quantity=1&id=<%=resultSet.getString("id") %>" class="btn btn-primary">Buy Song</a>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+</div>
 
 
-</tr>
+
 <%
 }
 connection.close();
@@ -51,6 +76,6 @@ connection.close();
 e.printStackTrace();
 }
 %>
-</table>
+<%@include file="/includes/footer.jsp"%>
 </body>
 </html>
