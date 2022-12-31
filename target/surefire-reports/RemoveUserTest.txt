@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: RemoveUserTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.706 s - in RemoveUserTest
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.973 s <<< FAILURE! - in RemoveUserTest
+testAdminlogin_validCredentials_returnsAdminObject  Time elapsed: 0.338 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: not <null>
+	at RemoveUserTest.testAdminlogin_validCredentials_returnsAdminObject(RemoveUserTest.java:132)
+

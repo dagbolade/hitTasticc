@@ -39,7 +39,7 @@ public class adminDao {
         try {
             //check if user exists in db
             query = "select * from admin where email=? and password=?";
-            pst = this.con.prepareStatement(query);
+            pst = con.prepareStatement(query);
             pst.setString(1, email);
             pst.setString(2, password);
             rs = pst.executeQuery();
