@@ -1,4 +1,9 @@
-UserLoginTest.class
 ViewUserTest.class
+AddSongTest.class
+UserLoginTest.class
+SearchResultTest.class
 AdminLoginTest.class
+CartListTest.class
 RemoveUserTest.class
+TestuserAuthSession.class
+UpdateUserTest.class
