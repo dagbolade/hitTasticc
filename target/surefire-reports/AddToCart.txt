@@ -1,9 +1,0 @@
--------------------------------------------------------------------------------
-Test set: AddToCart
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.634 s <<< FAILURE! - in AddToCart
-testDoGet_emptyCart_addsItemToCart  Time elapsed: 0.63 s  <<< ERROR!
-java.lang.UnsupportedOperationException: Not supported yet.
-	at AddToCart.doGet(AddToCart.java:49)
-	at AddToCart.testDoGet_emptyCart_addsItemToCart(AddToCart.java:36)
-

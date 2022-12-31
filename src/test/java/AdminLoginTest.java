@@ -1,5 +1,4 @@
 
-
 import com.assessment.hittasticc.connection.dbconn;
 import com.assessment.hittasticc.dao.UserDao;
 import com.assessment.hittasticc.dao.adminDao;
@@ -25,6 +24,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.assessment.hittasticc.dao.*;
 import com.assessment.hittasticc.model.admlgn;
+import java.sql.DriverManager;
 
 import org.junit.*;
 import org.junit.*;
@@ -41,23 +41,27 @@ import org.mockito.junit.MockitoJUnitRunner;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author dagbo
  */
 public class AdminLoginTest {
+
     @Test
-public void testUserlogin_validCredentials_returnsAdminObject() throws SQLException, ClassNotFoundException {
-    // Arrange
-    String email = "test@example.com";
-    String password = "password";
+    public void testUserlogin_validCredentials_returnsAdminObject() throws SQLException, ClassNotFoundException {
+        // Arrange
+        String email = "test@example.com";
+        String password = "password";
+
+        // Act
+        adminDao result = new adminDao(dbconn.getConnection());
+        result.adminlogin(email, password);
+
+        // Assert
+        assertNotNull(result);
+    }
     
-    // Act
-    adminDao result = new adminDao(dbconn.getConnection());
-      result.adminlogin(email, password);
     
-    // Assert
-    assertNotNull(result);
-}
+
+
 }

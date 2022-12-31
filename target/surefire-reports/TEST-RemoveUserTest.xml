@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="RemoveUserTest" time="0.973" tests="3" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="RemoveUserTest" time="0.911" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -17,9 +17,8 @@
     <property name="user.country" value="GB"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Users\dagbo\Downloads\java-11-openjdk-11.0.12.7-1.windows.redhat.x86_64\java-11-openjdk-11.0.12.7-1.windows.redhat.x86_64\bin"/>
-    <property name="sun.java.command" value="C:\Users\dagbo\AppData\Local\Temp\surefire10593577212390681875\surefirebooter8925665484394991898.jar C:\Users\dagbo\AppData\Local\Temp\surefire10593577212390681875 2022-12-31T00-25-53_976-jvmRun1 surefire12344389965919554410tmp surefire_06020595554606872105tmp"/>
+    <property name="sun.java.command" value="C:\Users\dagbo\AppData\Local\Temp\surefire2492669126474477066\surefirebooter5742260823552017363.jar C:\Users\dagbo\AppData\Local\Temp\surefire2492669126474477066 2022-12-31T02-37-43_129-jvmRun1 surefire3571386008956844186tmp surefire_017174963614445967507tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="test" value="RemoveUserTest"/>
     <property name="surefire.test.class.path" value="C:\Users\dagbo\hitTasticc\target\test-classes;C:\Users\dagbo\hitTasticc\target\classes;C:\Users\dagbo\.m2\repository\org\mockito\mockito-junit-jupiter\3.6.28\mockito-junit-jupiter-3.6.28.jar;C:\Users\dagbo\.m2\repository\org\mockito\mockito-core\3.6.28\mockito-core-3.6.28.jar;C:\Users\dagbo\.m2\repository\net\bytebuddy\byte-buddy\1.10.18\byte-buddy-1.10.18.jar;C:\Users\dagbo\.m2\repository\net\bytebuddy\byte-buddy-agent\1.10.18\byte-buddy-agent-1.10.18.jar;C:\Users\dagbo\.m2\repository\org\objenesis\objenesis\3.1\objenesis-3.1.jar;C:\Users\dagbo\.m2\repository\junit\junit\4.13.1\junit-4.13.1.jar;C:\Users\dagbo\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\dagbo\.m2\repository\javax\javaee-web-api\7.0\javaee-web-api-7.0.jar;C:\Users\dagbo\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.7.2\junit-jupiter-api-5.7.2.jar;C:\Users\dagbo\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\dagbo\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\dagbo\.m2\repository\org\junit\platform\junit-platform-commons\1.7.2\junit-platform-commons-1.7.2.jar;C:\Users\dagbo\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.7.2\junit-jupiter-engine-5.7.2.jar;C:\Users\dagbo\.m2\repository\org\junit\platform\junit-platform-engine\1.7.2\junit-platform-engine-1.7.2.jar;C:\Users\dagbo\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.7.2\junit-jupiter-params-5.7.2.jar;C:\Users\dagbo\.m2\repository\com\mysql\mysql-connector-j\8.0.31\mysql-connector-j-8.0.31.jar;C:\Users\dagbo\.m2\repository\com\google\protobuf\protobuf-java\3.19.4\protobuf-java-3.19.4.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\dagbo"/>
@@ -34,7 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\dagbo\AppData\Local\Temp\surefire10593577212390681875\surefirebooter8925665484394991898.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\dagbo\AppData\Local\Temp\surefire2492669126474477066\surefirebooter5742260823552017363.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.12+7-LTS"/>
@@ -62,12 +61,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="testAdminlogin_validCredentials_returnsAdminObject" classname="RemoveUserTest" time="0.338">
-    <failure message="expected: not &lt;null&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: not <null>
-	at RemoveUserTest.testAdminlogin_validCredentials_returnsAdminObject(RemoveUserTest.java:132)
-]]></failure>
-    <system-out><![CDATA[connected]]></system-out>
-  </testcase>
-  <testcase name="testRemoveUser_existingUser_removesUser" classname="RemoveUserTest" time="0.54"/>
-  <testcase name="testViewUsers_returnsListOfUsers" classname="RemoveUserTest" time="0.087"/>
+  <testcase name="testRemoveUser_existingUser_removesUser" classname="RemoveUserTest" time="0.814"/>
+  <testcase name="testViewUsers_returnsListOfUsers" classname="RemoveUserTest" time="0.096"/>
 </testsuite>
