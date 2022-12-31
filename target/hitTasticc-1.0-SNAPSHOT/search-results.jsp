@@ -1,3 +1,6 @@
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.assessment.hittasticc.model.Song"%>
 <%@page import="com.assessment.hittasticc.model.user"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -28,51 +31,80 @@
         <%@include file="/includes/navbar.jsp"%>
 
 
+<%
+  // get search input value
+  String searchInput = request.getParameter("q");
 
-        <%    try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hittastic", "root", "");
-                Statement st = conn.createStatement();
+  ArrayList<Song> songs = new ArrayList<Song>();
 
-                String title = request.getParameter("title");
-                String artist = request.getParameter("artist"); //giving a null error exception
+  // send search input to database and get results
+  Connection conn = null;
+  PreparedStatement pstmt = null;
+  ResultSet rs = null;
+  try {
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hittastic", "root", "");
+    String query = "SELECT * FROM songs WHERE artist LIKE ? OR title LIKE ?";
+    pstmt = conn.prepareStatement(query);
+    pstmt.setString(1, "%" + searchInput + "%");
+    pstmt.setString(2, "%" + searchInput + "%");
+    rs = pstmt.executeQuery();
 
-                String sql = "select * from songs where artist='" + artist + "' OR title='" + title + "'";
-                resultSet = st.executeQuery(sql);
-                while (resultSet.next()) {
-        %>
-        <div class="container">
-            <div class="card-header my-3">
-                Searched Results
-            </div>
-            <div class="row">   
-                <div class="col-md-3 my-3">
-                    <div class="card w-100" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Song Title: <%=resultSet.getString("title")%> </h5>
-                            <h6 class="artistt">Artist : <%=resultSet.getString("artist")%></h6>
-                            <h7 class="amount">Amount : £<%=resultSet.getString("amount")%></h7>
-                            <h8 class="genre">Genre : <%=resultSet.getString("genre")%></h8>
-                            <div class="d-flex justify-content-between mt-3">
-                                <a href="add-to-cart?id=<%=resultSet.getString("id")%>" class="btn btn-outline-success">Add to Cart</a>
-                                <a href="order-now?quantity=1&id=<%=resultSet.getString("id")%>" class="btn btn-primary">Buy Song</a>
-                            </div>
+    // add each result to the list of songs
+    while (rs.next()) {
+      Song song = new Song();
+      song.setId(rs.getInt("id"));
+      song.setTitle(rs.getString("title"));
+      song.setArtist(rs.getString("artist"));
+      song.setAmount(rs.getDouble("amount"));
+      song.setGenre(rs.getString("genre"));
+      songs.add(song);
+    }
+  } catch (SQLException se) {
+    se.printStackTrace();
+  } catch (Exception e) {
+    e.printStackTrace();
+  } finally {
+    try {
+      if (rs != null) rs.close();
+      if (pstmt != null) pstmt.close();
+      if (conn != null) conn.close();
+    } catch (SQLException se) {
+      se.printStackTrace();
+    }
+  }
+  // store the list of songs in the request attribute
+  request.setAttribute("songs", songs);
+%>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
+<%@include file="/includes/header.jsp"%>
+<div class="container my-5">
+  <div class="card-header">
+    Searched Results
+  </div>
+  <div class="row">
+    <%
+      // get the list of songs from the request attribute
+     
+      for (Song song : songs) {
+    %>
+    <div class="col-md-3 my-3">
+      <div class="card w-100" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Song Title: <%=song.getTitle()%> </h5>
+          <h6 class="artistt">Artist : <%=song.getArtist()%></h6>
+          <h7 class="amount">Amount : £<%=song.getAmount()%></h7>
+          <h8 class="genre">Genre : <%=song.getGenre()%></h8>
+          <div class="d-flex justify-content-between mt-3">
+            <a href="add-to-cart?id=<%=song.getId()%>" class="btn btn-outline-success">Add to Cart</a>
+            <a href="order-now?quantity=1&id=<%=song.getId()%>" class="btn btn-primary">Buy Song</a>
+          </div>
         </div>
-
-
-
-        <%
-                }
-                connection.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        %>
-        <%@include file="/includes/footer.jsp"%>
-    </body>
-</html>
+      </div>
+    </div>
+    <%
+      }
+%>
+</div>
+</div>
+<%@include file="/includes/footer.jsp"%>

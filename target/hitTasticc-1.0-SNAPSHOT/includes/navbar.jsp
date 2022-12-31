@@ -20,8 +20,8 @@
                     <a class="nav-link" href="cart.jsp">Cart<span class="badge badge-primary px-2">${ cart_list.size()}</span></a>
                 </li>
                 <form action="search-results.jsp" method="post" class="form-inline my-2 my-lg-0">
-                        <input type="hidden" name="title" value="value here">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search for music" aria-label="Search" name="artist">
+                        <input type="search" class="form-control mr-sm-2" name="q" id="search-input" placeholder="Search for artist or title" >
+                        
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="save">Search</button>
                     </form>
 
