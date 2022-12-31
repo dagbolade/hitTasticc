@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: CheckOutTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.611 s <<< FAILURE! - in CheckOutTest
+testDoGet_loggedInUser_insertsOrdersIntoDatabase  Time elapsed: 0.604 s  <<< ERROR!
+java.lang.ExceptionInInitializerError
+	at CheckOutTest.testDoGet_loggedInUser_insertsOrdersIntoDatabase(CheckOutTest.java:50)
+Caused by: java.util.MissingResourceException: Can't find bundle for base name javax.servlet.LocalStrings, locale en_GB
+	at CheckOutTest.testDoGet_loggedInUser_insertsOrdersIntoDatabase(CheckOutTest.java:50)
+
