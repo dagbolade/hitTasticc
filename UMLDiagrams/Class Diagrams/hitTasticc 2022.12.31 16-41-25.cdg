@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="hitTasticc">
+  <ClassDiagramComponents>
+    <Class name="dbconn" package="com.assessment.hittasticc.connection" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="connection" type="Connection" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getConnection" returnType="Connection" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="adminDao" package="com.assessment.hittasticc.dao" visibility="public" xPosition="251.0" yPosition="1.0">
+      <Fields>
+        <Field name="con" type="Connection" visibility="private"/>
+        <Field name="query" type="String" visibility="private"/>
+        <Field name="pst" type="PreparedStatement" visibility="private"/>
+        <Field name="rs" type="ResultSet" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Connection" name="con"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="adminlogin" returnType="admlgn" visibility="public">
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="viewUsers" returnType="List&lt;user&gt;" visibility="public"/>
+        <Method name="insert" returnType="void" visibility="public">
+          <Argument type="Song" name="song"/>
+        </Method>
+        <Method name="RemoveUser" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="OrderDao" package="com.assessment.hittasticc.dao" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="con" type="Connection" visibility="private"/>
+        <Field name="query" type="String" visibility="private"/>
+        <Field name="pst" type="PreparedStatement" visibility="private"/>
+        <Field name="rs" type="ResultSet" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Connection" name="con"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="insertOrder" returnType="boolean" visibility="public">
+          <Argument type="Order" name="model"/>
+        </Method>
+        <Method name="userOrders" returnType="List&lt;Order&gt;" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="RemoveOrder" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="SongsDao" package="com.assessment.hittasticc.dao" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="con" type="Connection" visibility="private"/>
+        <Field name="query" type="String" visibility="private"/>
+        <Field name="pst" type="PreparedStatement" visibility="private"/>
+        <Field name="rs" type="ResultSet" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Connection" name="con"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAllSongs" returnType="List&lt;Song&gt;" visibility="public"/>
+        <Method name="searchMusic" returnType="List&lt;Song&gt;" visibility="public">
+          <Argument type="String" name="search"/>
+        </Method>
+        <Method name="getCartSongs" returnType="List&lt;Cart&gt;" visibility="public">
+          <Argument type="ArrayList&lt;Cart&gt;" name="cartList"/>
+        </Method>
+        <Method name="getSingleSong" returnType="Song" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getTotalAmount" returnType="double" visibility="public">
+          <Argument type="ArrayList&lt;Cart&gt;" name="cartList"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="UserDao" package="com.assessment.hittasticc.dao" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="con" type="Connection" visibility="private"/>
+        <Field name="query" type="String" visibility="private"/>
+        <Field name="pst" type="PreparedStatement" visibility="private"/>
+        <Field name="rs" type="ResultSet" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Connection" name="con"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="userlogin" returnType="user" visibility="public">
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="password"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="admlgn" package="com.assessment.hittasticc.model" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="password" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="password"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+        <Method name="getPassword" returnType="String" visibility="public"/>
+        <Method name="setPassword" returnType="void" visibility="public">
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Cart" package="com.assessment.hittasticc.model" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="quantity" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getQuantity" returnType="int" visibility="public"/>
+        <Method name="setQuantity" returnType="void" visibility="public">
+          <Argument type="int" name="quantity"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Order" package="com.assessment.hittasticc.model" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="orderId" type="int" visibility="private"/>
+        <Field name="uid" type="int" visibility="private"/>
+        <Field name="qty" type="int" visibility="private"/>
+        <Field name="date" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="orderId"/>
+          <Argument type="int" name="uid"/>
+          <Argument type="int" name="qty"/>
+          <Argument type="String" name="date"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="uid"/>
+          <Argument type="int" name="qty"/>
+          <Argument type="String" name="date"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getQty" returnType="int" visibility="public"/>
+        <Method name="setQty" returnType="void" visibility="public">
+          <Argument type="int" name="qty"/>
+        </Method>
+        <Method name="getOrderId" returnType="int" visibility="public"/>
+        <Method name="setOrderId" returnType="void" visibility="public">
+          <Argument type="int" name="orderId"/>
+        </Method>
+        <Method name="getUid" returnType="int" visibility="public"/>
+        <Method name="setUid" returnType="void" visibility="public">
+          <Argument type="int" name="uid"/>
+        </Method>
+        <Method name="getDate" returnType="String" visibility="public"/>
+        <Method name="setDate" returnType="void" visibility="public">
+          <Argument type="String" name="date"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Song" package="com.assessment.hittasticc.model" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="title" type="String" visibility="private"/>
+        <Field name="artist" type="String" visibility="private"/>
+        <Field name="amount" type="Double" visibility="private"/>
+        <Field name="genre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="title"/>
+          <Argument type="String" name="artist"/>
+          <Argument type="Double" name="amount"/>
+          <Argument type="String" name="genre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAmount" returnType="Double" visibility="public"/>
+        <Method name="setAmount" returnType="void" visibility="public">
+          <Argument type="Double" name="amount"/>
+        </Method>
+        <Method name="getArtist" returnType="String" visibility="public"/>
+        <Method name="setArtist" returnType="void" visibility="public">
+          <Argument type="String" name="artist"/>
+        </Method>
+        <Method name="getTitle" returnType="String" visibility="public"/>
+        <Method name="setTitle" returnType="void" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="getGenre" returnType="String" visibility="public"/>
+        <Method name="setGenre" returnType="void" visibility="public">
+          <Argument type="String" name="genre"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="user" package="com.assessment.hittasticc.model" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="password" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="password"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+        <Method name="getPassword" returnType="String" visibility="public"/>
+        <Method name="setPassword" returnType="void" visibility="public">
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="addSong" package="com.assessment.hittasticc.server" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="doGet" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doPost" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AddToCart" package="com.assessment.hittasticc.server" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="doGet" returnType="void" visibility="public">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doPost" returnType="void" visibility="public">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="adminLgnServlet" package="com.assessment.hittasticc.server" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="doGet" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doPost" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CancelOrder" package="com.assessment.hittasticc.server" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="doGet" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CheckOut" package="com.assessment.hittasticc.server" visibility="public" xPosition="1820.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="doGet" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doPost" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="LoginUser" package="com.assessment.hittasticc.server" visibility="public" xPosition="2120.0" yPosition="420.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="doGet" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doPost" returnType="void" visibility="public">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="getServletInfo" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LogoutUser" package="com.assessment.hittasticc.server" visibility="public" xPosition="20.0" yPosition="820.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="doGet" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doPost" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="getServletInfo" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="OrderNow" package="com.assessment.hittasticc.server" visibility="public" xPosition="320.0" yPosition="820.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="doGet" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doPost" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="QuantityIncDec" package="com.assessment.hittasticc.server" visibility="public" xPosition="620.0" yPosition="820.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="doGet" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="RemoveOrder" package="com.assessment.hittasticc.server" visibility="public" xPosition="920.0" yPosition="820.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="doGet" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doPost" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="RemoveUser" package="com.assessment.hittasticc.server" visibility="public" xPosition="1220.0" yPosition="820.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="doGet" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+        <Method name="doPost" returnType="void" visibility="protected">
+          <Argument type="HttpServletRequest" name="request"/>
+          <Argument type="HttpServletResponse" name="response"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="com.assessment.hittasticc.model.Order" target="com.assessment.hittasticc.model.Song"/>
+    <IsRelation name="is" source="com.assessment.hittasticc.model.Cart" target="com.assessment.hittasticc.model.Song"/>
+    <UseRelation source="com.assessment.hittasticc.dao.adminDao" target="com.assessment.hittasticc.model.admlgn" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.assessment.hittasticc.dao.adminDao" target="com.assessment.hittasticc.model.Song" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.assessment.hittasticc.dao.UserDao" target="com.assessment.hittasticc.model.user" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.assessment.hittasticc.dao.OrderDao" target="com.assessment.hittasticc.model.Order" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.assessment.hittasticc.dao.SongsDao" target="com.assessment.hittasticc.model.Cart" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.assessment.hittasticc.dao.adminDao" target="com.assessment.hittasticc.model.user" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.assessment.hittasticc.dao.SongsDao" target="com.assessment.hittasticc.model.Song" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
