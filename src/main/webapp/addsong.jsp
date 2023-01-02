@@ -40,7 +40,7 @@
            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hittastic","root","");
            Statement st=conn.createStatement();
            int i=st.executeUpdate("insert into songs(title,artist,amount,genre)values('"+title+"','"+artist+"','"+amount+"','"+genre+"')");
-        out.println("Data is successfully inserted!");
+        out.println("Song has been successfully added");
         }
         catch(Exception e)
         {

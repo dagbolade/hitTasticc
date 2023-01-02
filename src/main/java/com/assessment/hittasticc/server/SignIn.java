@@ -31,7 +31,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
  
         // get the username and password from the request
-        String username = request.getParameter("username");
+        String email = request.getParameter("email");
         String password = request.getParameter("password");
  
         // validate the login
@@ -39,25 +39,25 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/hittastic","root","");
-            String query = "SELECT * FROM users_role WHERE username=? AND password=?";
+            String query = "SELECT * FROM users_role WHERE email=? AND password=?";
             PreparedStatement stmt = con.prepareStatement(query);
-            stmt.setString(1, username);
+            stmt.setString(1, email);
             stmt.setString(2, password);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 // login successful
                 HttpSession session = request.getSession();
-                session.setAttribute("username", username);
+                session.setAttribute("email", email);
                 // redirect to the appropriate welcome page based on the user's role
                 String role = rs.getString("role");
                 if (role.equals("user")) {
-                    response.sendRedirect("index.jsp");
+                    response.sendRedirect("home.jsp");
                 } else if (role.equals("admin")) {
                     response.sendRedirect("adminIndex.jsp");
                 }
             } else {
                 // login failed
-                request.setAttribute("error", "Invalid username or password");
+                request.setAttribute("error", "Invalid email or password");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             }
         } catch (ClassNotFoundException | SQLException e) {

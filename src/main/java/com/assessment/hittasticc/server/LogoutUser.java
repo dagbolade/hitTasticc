@@ -28,9 +28,9 @@ public class LogoutUser extends HttpServlet {
         //check if session exists
         if(request.getSession().getAttribute("auth") != null){
             request.getSession().removeAttribute("auth");
-            response.sendRedirect("login.jsp");
-        }else{
             response.sendRedirect("index.jsp");
+        }else{
+            response.sendRedirect("home.jsp");
         }
         }
         

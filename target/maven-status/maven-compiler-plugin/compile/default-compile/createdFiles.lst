@@ -14,6 +14,7 @@ com\assessment\hittasticc\server\CheckOut.class
 com\assessment\hittasticc\model\Order.class
 com\assessment\hittasticc\dao\UserDao.class
 com\assessment\hittasticc\server\LoginUser.class
+com\assessment\hittasticc\server\SignIn.class
 com\assessment\hittasticc\server\QuantityIncDec.class
 com\assessment\hittasticc\model\Cart.class
 com\assessment\hittasticc\server\OrderNow.class

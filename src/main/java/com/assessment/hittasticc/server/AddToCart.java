@@ -48,7 +48,7 @@ public class AddToCart extends HttpServlet {
                 cartList.add(item);
                 session.setAttribute("cart-list", cartList);
                 //out.println("session created and added the list");
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("home.jsp");
             }else {
                 // check if its exist
                 cartList = cart_list;
@@ -63,7 +63,7 @@ public class AddToCart extends HttpServlet {
                 }
                 if(!exist){
                         cartList.add(item);
-                        response.sendRedirect("index.jsp");
+                        response.sendRedirect("home.jsp");
                 }
             }
             

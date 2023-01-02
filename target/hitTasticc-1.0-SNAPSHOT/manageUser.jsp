@@ -26,7 +26,7 @@ List<user> users = null;
     <head>
         <%@include file="/includes/header.jsp"%>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Manage User</title>
     </head>
     <body>
         <%@include file="/includes/adminnavbar.jsp"%>

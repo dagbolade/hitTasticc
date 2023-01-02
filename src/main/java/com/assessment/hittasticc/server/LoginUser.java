@@ -51,7 +51,7 @@ public class LoginUser extends HttpServlet {
                 if(user != null){
                    
                     request.getSession().setAttribute("auth", user);
-                    response.sendRedirect("index.jsp");
+                    response.sendRedirect("home.jsp");
                 }else{
                     out.print("Incorrect login details");
                 }

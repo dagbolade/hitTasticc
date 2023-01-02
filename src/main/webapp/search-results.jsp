@@ -60,7 +60,7 @@
       song.setGenre(rs.getString("genre"));
       songs.add(song);
     }
-    System.out.println("Expected genre: " + songs);
+    System.out.println("Expected Songs: " + songs);
   } catch (SQLException se) {
     se.printStackTrace();
   } catch (Exception e) {

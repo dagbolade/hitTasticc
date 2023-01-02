@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: AddToCartTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.028 s <<< FAILURE! - in AddToCartTest
-testDoGet  Time elapsed: 0.024 s  <<< ERROR!
-java.lang.NullPointerException
-	at AddToCartTest.testDoGet(AddToCartTest.java:69)
-
