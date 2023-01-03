@@ -59,7 +59,7 @@ public class adminDao {
 
     }
     
-    //retrieve all orders from the database and return it as a list
+    //retrieve all users from the database and return it as a list
     public List<user> viewUsers(){
         List<user> list = new ArrayList();
         

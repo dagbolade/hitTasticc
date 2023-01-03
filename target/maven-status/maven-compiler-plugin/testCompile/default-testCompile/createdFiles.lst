@@ -1,14 +1,11 @@
-TestClientSearch.class
 AddSongTest.class
 UserLoginTest.class
 SearchResultTest.class
 AdminLoginTest.class
 RemoveOrderTest.class
 RemoveUserTest.class
-TestViewUser.class
 ViewUserTest.class
 ViewOrderTest.class
-TestClientAddSong.class
 BuyNowTest.class
 CartListTest.class
 TestuserAuthSession.class
