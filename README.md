@@ -5,7 +5,7 @@
 
 - [HITTASTIC](https://github.com/dagbolade/hitTasticc.git "Hittasticc")
 
-### To run the project using  in Netbeans embedded Tomcat server
+### To run the project using Netbeans embedded Tomcat server
 first you need to import the sql file into your database
 
 it should look like this
@@ -30,5 +30,6 @@ The system requirements for this project is listed below
 -	Java JDK version 8 and above.
 -	Apache tomcat.
 -	MySQL for the database.
+-	XAMPP
 -	NetBeans.
 
