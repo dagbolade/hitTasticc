@@ -1,12 +1,15 @@
+ViewOrdersTestClient.class
 AddSongTest.class
 UserLoginTest.class
 SearchResultTest.class
 AdminLoginTest.class
 RemoveOrderTest.class
 RemoveUserTest.class
+TestViewUser.class
 ViewUserTest.class
 ViewOrderTest.class
 BuyNowTest.class
 CartListTest.class
+SearchTestClient.class
 TestuserAuthSession.class
 UpdateUserTest.class
